@@ -1,0 +1,24 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import FaqAccordion from "../components/ui/FaqAccordion.astro";
+---
+
+<MainLayout title="FAQ - PKKBN 2026">
+  <main class="max-w-4xl mx-auto px-4 md:px-6 space-y-8 md:space-y-12 pt-8 md:pt-12 pb-16 md:pb-24">
+    <div class="text-center space-y-3 md:space-y-4">
+      <h1 class="text-2xl md:text-4xl font-bold text-primary">Frequently Asked Questions</h1>
+      <p class="text-sm md:text-base text-on-surface-variant">
+        Punya pertanyaan? Mungkin sudah ada jawabannya di sini.
+      </p>
+    </div>
+
+    <FaqAccordion />
+
+    <div class="text-center bg-surface-container-low p-4 md:p-6 rounded-2xl">
+      <p class="text-sm md:text-base text-on-surface-variant">
+        Tidak menemukan jawaban yang Anda cari?
+        <a href="/announcements" class="text-secondary font-semibold hover:underline">Hubungi panitia</a> untuk informasi lebih lanjut.
+      </p>
+    </div>
+  </main>
+</MainLayout>

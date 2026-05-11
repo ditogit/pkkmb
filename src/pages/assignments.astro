@@ -1,0 +1,213 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import fs from "node:fs";
+import path from "node:path";
+
+const markdownPath = path.join(process.cwd(), "context", "assignment.md");
+const markdownContent = fs.existsSync(markdownPath)
+  ? fs.readFileSync(markdownPath, "utf-8")
+  : "";
+---
+
+<MainLayout title="Penugasan - PKKBN 2026">
+  <main
+    class="max-w-4xl mx-auto px-4 md:px-6 space-y-8 md:space-y-12 pt-8 md:pt-12 pb-16 md:pb-24">
+    <div class="text-center space-y-3 md:space-y-4">
+      <h1 class="text-2xl md:text-4xl font-bold text-primary">
+        Penugasan Peserta
+      </h1>
+      <p class="text-sm md:text-base text-on-surface-variant max-w-xl mx-auto">
+        Daftar tugas wajib bagi seluruh peserta PKKBN 2026
+      </p>
+    </div>
+
+    <div
+      class="bg-surface-container-lowest rounded-2xl p-5 md:p-8 border border-outline-variant/10 space-y-8">
+      <div class="prose prose-sm md:prose max-w-none">
+        <p class="text-on-surface-variant leading-relaxed mb-6">
+          Penugasan untuk peserta PKKBN 2026 akan dilakukan di tingkat
+          universitas dan bersifat wajib bagi seluruh peserta PKKBN Tahun 2026.
+          Tugas yang diberikan berupa pembuatan proposal Program Kreativitas
+          Mahasiwa (PKM) yang dilakukan secara kelompok. PKM sendiri merupakan
+          sebuah wadah untuk mendorong mahasiswa agar lebih kreatif dan inovatif
+          dalam menuangkan ide atau gagasan sebagai bentuk penerapan ilmu
+          pengetahuan. Penugasan ini dilakukan sebagai salah satu pemenuhan
+          syarat penerbitan sertifikat PKKBN 2026.
+        </p>
+
+        <div
+          class="bg-secondary-container/20 border-l-4 border-secondary p-4 md:p-6 rounded-r-lg my-6">
+          <h3 class="font-bold text-secondary mb-3 flex items-center gap-2">
+            <span class="material-symbols-outlined">info</span>
+            Ketentuan Umum
+          </h3>
+          <ul
+            class="list-disc list-inside space-y-2 text-sm md:text-base text-on-surface-variant">
+            <li>Tugas bersifat kelompok</li>
+            <li>
+              Setiap kelompok terdiri dari 4 sampai 5 mahasiswa dalam satu gugus
+              yang sama
+            </li>
+            <li>
+              Setiap kelompok membuat proposal PKM sesuai dengan jenis PKM yang
+              sudah ditentukan pergugusnya
+            </li>
+            <li>Proposal diketik dengan format yang telah ditentukan</li>
+            <li>
+              Penamaan kelompok berdasarkan pada nomor gugus dan diikuti dengan
+              abjad secara berurutan
+            </li>
+            <li>
+              Tugas proposal dikumpulkan dalam bentuk soft file <strong
+                >MAKSIMAL</strong
+              > pada hari <strong
+                >Sabtu, 16 Agustus 2026 pukul 16.00 WIB</strong>
+            </li>
+            <li>
+              Format penamaan soft file adalah <code
+                >Kelompok_Jenis PKM_Judul PKM</code>
+            </li>
+          </ul>
+        </div>
+
+        <div class="mt-8">
+          <h3
+            class="text-lg md:text-xl font-bold text-primary mb-4 flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary">download</span>
+            Link Pendukung
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <a
+              href="https://bit.ly/StarterpackPKMUPNVY2026"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-3 p-4 bg-surface-container rounded-xl border border-outline-variant/10 hover:shadow-md transition-shadow">
+              <span
+                class="material-symbols-outlined text-secondary bg-secondary/10 p-2 rounded-lg"
+                >description</span
+              >
+              <div>
+                <span class="font-semibold text-sm text-primary"
+                  >Starterpack PKM</span
+                >
+                <p class="text-xs text-on-surface-variant">
+                  Format & contoh proposal
+                </p>
+              </div>
+            </a>
+            <a
+              href="https://bit.ly/PengumpulanProposalPKMPKKBN2026"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-3 p-4 bg-surface-container rounded-xl border border-outline-variant/10 hover:shadow-md transition-shadow">
+              <span
+                class="material-symbols-outlined text-secondary bg-secondary/10 p-2 rounded-lg"
+                >upload_file</span
+              >
+              <div>
+                <span class="font-semibold text-sm text-primary"
+                  >Pengumpulan Proposal</span
+                >
+                <p class="text-xs text-on-surface-variant">Upload file PDF</p>
+              </div>
+            </a>
+            <a
+              href="https://bit.ly/TwibbonPKKBNUPNVY2026"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-3 p-4 bg-surface-container rounded-xl border border-outline-variant/10 hover:shadow-md transition-shadow col-span-1 md:col-span-2">
+              <span
+                class="material-symbols-outlined text-secondary bg-secondary/10 p-2 rounded-lg"
+                >photo</span
+              >
+              <div>
+                <span class="font-semibold text-sm text-primary"
+                  >Template Twibbon</span
+                >
+                <p class="text-xs text-on-surface-variant">Download template</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="mt-8 space-y-6">
+          <h3
+            class="text-lg md:text-xl font-bold text-primary flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary"
+              >assignment</span
+            >
+            Penugasan Tambahan
+          </h3>
+
+          <div
+            class="bg-tertiary-container/10 border border-tertiary-container p-4 md:p-6 rounded-xl">
+            <h4
+              class="font-bold text-on-tertiary-container mb-3 flex items-center gap-2">
+              <span class="material-symbols-outlined">badge</span>
+              COCARD
+            </h4>
+            <ul
+              class="list-disc list-inside space-y-2 text-sm md:text-base text-on-surface-variant">
+              <li>
+                Cocard dicetak dan dimasukan pada case cocard dengan ukuran <strong
+                  >B4 (140mm × 80mm)</strong>
+              </li>
+              <li>
+                Foto pada cocard bersifat formal dengan latar biru atau merah
+              </li>
+              <li>
+                Penamaan gugus: angka (nama gugus). Contoh: <strong
+                  >1 (Alor)</strong>
+              </li>
+            </ul>
+          </div>
+
+          <div
+            class="bg-primary-container/10 border border-primary-container p-4 md:p-6 rounded-xl">
+            <h4 class="font-bold text-primary mb-3 flex items-center gap-2">
+              <span class="material-symbols-outlined">photo_camera</span>
+              TWIBBON
+            </h4>
+            <p class="text-sm md:text-base text-on-surface-variant mb-4">
+              Twibbon diupload ke Instagram dengan deadline <strong
+                >tanggal 11 Agustus 2026 pukul 23.59 WIB</strong
+              >
+            </p>
+            <div class="bg-surface-container p-4 rounded-lg">
+              <p
+                class="text-xs md:text-sm text-on-surface-variant font-mono whitespace-pre-wrap">
+                ✨Pilar Inovasi, Berdampak Prestasi✨ Halo semuanya! Saya [Nama
+                Lengkap], mahasiswa [Prodi], Fakultas [Fakultas], Universitas
+                Pembangunan Nasional "Veteran" Yogyakarta. (Quotes
+                Motivasi/Bebas) Saya bangga menjadi bagian dari Wimada Muda dan
+                siap berkontribusi dalam PKKBN 2026! Mari kita wujudkan generasi
+                tangguh, cerdas, dan cinta tanah air! Sampai jumpa di PKKBN
+                2026! Jangan lupa semangatnya dibawa terus yaa! #PKKBN2026
+                #WIMADA2026 #UPNVeteranYogyakarta
+              </p>
+            </div>
+            <div class="mt-4 pt-4 border-t border-outline-variant/20">
+              <h5 class="font-bold text-sm text-primary mb-2">Catatan:</h5>
+              <ul
+                class="list-disc list-inside space-y-1 text-xs md:text-sm text-on-surface-variant">
+                <li>Foto bersifat bebas dan sopan</li>
+                <li>
+                  Tag kakak asuh dan Instagram <strong>@pkkbn_upnvyk</strong>
+                </li>
+                <li>
+                  Akun Instagram harus bersifat "publik" atau tidak diprivat
+                  sampai <strong
+                    >tanggal 17 Agustus 2026 pukul 12.00 WIB</strong>
+                </li>
+                <li>
+                  Postingan twibbon harus dikeep sampai <strong
+                    >tanggal 17 Agustus 2026 pukul 12.00 WIB</strong>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</MainLayout>

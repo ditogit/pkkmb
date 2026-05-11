@@ -1,0 +1,81 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+
+const locations = [
+  {
+    category: "Dalam Kampus",
+    items: [
+      { name: "Gedung Rektorat", description: "Tempat upacara pembukaan dan penutupan", address: "Kampus UPN Veteran Yogyakarta, Condongcatur, Sleman", image: "https://images.unsplash.com/photo-1562774053-701939374585?w=800&q=80" },
+      { name: "Gedung Student Center", description: "Loket pengambilan atribut PKKBN", address: "Kampus UPN Veteran Yogyakarta, Condongcatur, Sleman", image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&q=80" },
+      { name: "Aula", description: "Acara seminar dan presentasi", address: "Kampus UPN Veteran Yogyakarta, Condongcatur, Sleman", image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" },
+      { name: "Gedung Kuliah", description: "Kelas untuk kegiatan akademi", address: "Kampus UPN Veteran Yogyakarta, Condongcatur, Sleman", image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=80" },
+      { name: "Kantin Utama", description: "Area makan dan istirahat", address: "Kampus UPN Veteran Yogyakarta, Condongcatur, Sleman", image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80" },
+      { name: "Lapangan Upacara", description: "Upacara bendera dan apel pagi", address: "Kampus UPN Veteran Yogyakarta, Condongcatur, Sleman", image: "https://images.unsplash.com/photo-1576267423445-b2e0074d68a4?w=800&q=80" }
+    ]
+  },
+  {
+    category: "Luar Kampus - Outbound",
+    items: [
+      { name: "Jogja Adventure Zone (JAZ)", description: "Lokasi outbound dengan berbagai permainan team building dan adventure", address: "Jl. Amarta, Karang Janbe, Banguntapan, Kapanewon Banguntapan, Kabupaten Bantul, DIY", image: "https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&q=80", link: "https://maps.app.goo.gl/JAZ Yogyakarta" },
+      { name: "Akademi Angkatan Udara (AAU)", description: "Lokasi outbound bersama TNI AU dengan kegiatan militer dan bela negara", address: "Mereden, Sendangtirto, Kapanewon Berbah, Kabupaten Sleman, DIY", image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&q=80", link: "https://maps.app.goo.gl/AAU Yogyakarta" },
+      { name: "Yonmek 403", description: "Lokasi outbound bersama Yonmek dengan latihan kedisiplinan", address: "Kawasan militer Yogyakarta", image: "https://images.unsplash.com/photo-1597926660693-53a658313b9b?w=800&q=80", link: "https://maps.app.goo.gl/Yonmek 403 Yogyakarta" },
+      { name: "Kopasgat", description: "Lokasi outbound bersama Kopasgat TNI AU", address: "Kawasan udara Yogyakarta", image: "https://images.unsplash.com/photo-1605130284535-11dd9eedc58a?w=800&q=80", link: "https://maps.app.goo.gl/Kopasgat Yogyakarta" }
+    ]
+  }
+];
+---
+
+<MainLayout title="Info Lokasi - PKKBN 2026">
+  <main class="max-w-4xl mx-auto px-4 md:px-6 space-y-8 md:space-y-12 pt-8 md:pt-12 pb-16 md:pb-24">
+    <div class="text-center space-y-3 md:space-y-4">
+      <h1 class="text-2xl md:text-4xl font-bold text-primary">Info Lokasi</h1>
+      <p class="text-sm md:text-base text-on-surface-variant max-w-xl mx-auto">
+        Peta dan informasi lokasi kegiatan PKKBN di dalam dan luar kampus UPN Veteran Yogyakarta
+      </p>
+    </div>
+
+    {locations.map((category) => (
+      <section class="space-y-4 md:space-y-6">
+        <h2 class="text-lg md:text-xl font-bold text-primary flex items-center gap-2">
+          <span class="material-symbols-outlined text-secondary">place</span>
+          {category.category}
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+          {category.items.map((location) => (
+            <div class="bg-surface-container-lowest rounded-2xl border border-outline-variant/10 hover:shadow-lg transition-shadow overflow-hidden">
+              <div class="h-40 md:h-48 bg-surface-container relative">
+                <img
+                  src={location.image}
+                  alt={location.name}
+                  class="w-full h-full object-cover"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                <div class="absolute bottom-3 left-4 right-4">
+                  <h3 class="font-bold text-white text-base md:text-lg">{location.name}</h3>
+                </div>
+              </div>
+              <div class="p-4 md:p-5 space-y-3">
+                <p class="text-sm text-on-surface-variant">{location.description}</p>
+                <div class="flex items-start gap-2">
+                  <span class="material-symbols-outlined text-primary text-sm mt-0.5">location_on</span>
+                  <span class="text-xs md:text-sm text-on-surface-variant">{location.address}</span>
+                </div>
+                {location.link && (
+                  <a
+                    href={location.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-1.5 text-sm font-semibold text-secondary hover:underline"
+                  >
+                    <span class="material-symbols-outlined text-base">map</span>
+                    Buka di Google Maps
+                  </a>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    ))}
+  </main>
+</MainLayout>

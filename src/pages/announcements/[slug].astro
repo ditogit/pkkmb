@@ -1,0 +1,84 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+
+export function getStaticPaths() {
+  const announcements = [
+    {
+      slug: "prosedur-pengambilan-atribut-pkkbn",
+      category: "Info Penting",
+      categoryClass: "bg-tertiary-fixed text-on-tertiary-fixed",
+      title: "Prosedur Pengambilan Atribut PKKBN",
+      description: "Panduan teknis pengambilan kaos, topi, dan name tag peserta.",
+      date: "12 Juli 2026",
+      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCZ5oSkvfePHgRzMTOnedvXg5at0snXmqaAFE_WuRjnqJ_FP-a0PH3nfX5kNY9pqaIzHeYrxbA5m_KGczDX_e5pTGOlGbeCLLTED2OIUHPh42lneJYivGmp8WktTJkN1Y6GoXHM9onhjswAzxzwuJVY4ENL4KAZ6Ei2kLya2w8-iUGPnpbjEA62edVa-Wg2bDgLMrx98NYrAk0iIla0GdP21vObnX5H5Vxrguzo4BexZRqC1uHW6btFBWncKWjffZ5IUJoLpYcmnvNx",
+      content: `<h3>Alur Pengambilan Atribut</h3><ol><li>Mahasiswa baru datang ke loket dengan membawa KTM dan bukti registrasi.</li><li>Melakukan validasi data di loket verifikasi.</li><li>Menerima paket atribut yang berisi kaos, topi, dan name tag.</li><li>Menandatangani daftar hadir pengambilan atribut.</li></ol><h3>Waktu Pengambilan</h3><ul><li>Hari Senin - Jumat: 08.00 - 16.00 WIB</li><li>Sabtu: 08.00 - 12.00 WIB</li></ul><h3>Lokasi</h3><p>Gedung Student Center, Lantai 1</p>`
+    },
+    {
+      slug: "sosialisasi-krs-online-mahasiswa-baru",
+      category: "Akademik",
+      categoryClass: "bg-secondary-fixed text-on-secondary-fixed",
+      title: "Sosialisasi KRS Online Mahasiswa Baru",
+      description: "Jadwal pengisian kartu rencana studi untuk semester ganjil.",
+      date: "10 Juli 2026",
+      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDVNQqOdFzQrmP7Dy5n-ix7IbTL4MVvHLP8F34RQmsj-vzhWZUtS00GVR3zxslQWABAeNoUCcqu6eWWWUnIh5NVgI1PKulqW5-RW5AaC1I5kLVS73W9-qLz15ps_o0uhsIXhwugjo2G5GQfN35ksg1V3oGGZ9J2HGlWql5hghbFFoZ5fslBb3teyUDm4xl0IyBGnONP-yilLjJWoj4rZb0CWKGosH_m5J4aXZ0jgB3BU6pV0oYkIL5FiaUS5qvuvqyu0zRE4vN0QnuO",
+      content: `<h3>Tentang KRS Online</h3><p>Kartu Rencana Studi (KRS) adalah dokumen yang berisi rencana mata kuliah.</p><h3>Jadwal</h3><ul><li>Mulai: 15 Agustus 2026</li><li>Batas Akhir: 31 Agustus 2026</li></ul><h3>Cara Pengisian</h3><ol><li>Login ke sistem akademik</li><li>Pilih menu KRS Online</li><li>Submit KRS</li></ol>`
+    },
+    {
+      slug: "pelepasan-burung-upacara-pembukaan",
+      category: "Acara",
+      categoryClass: "bg-primary-fixed text-on-primary-fixed",
+      title: "Pelepasan Burung di Upacara Pembukaan",
+      description: "Detail rangkaian upacara pembukaan PKKBN 2026 di Lapangan Rektorat.",
+      date: "08 Juli 2026",
+      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuA2IepVpZk-5UcYFEPcZz4ckjc8D5gBULUZcQefMAFhLHT0BJMdRGq33XFk7PiZr-1mVvE2d0ZER-4kaz1pee1deVTuMZHC-kj_4d6y48RyfIFEfNVltcaAxJtHhMrVrpiGMiMvBqcZIjWK7dHwKmg4NJbOghGpbu8vn_gz6MPCUoMwUCEzQ74Go1kbyVA7edByVzZGQGqEVooJ845JzWbYK-nSI52pcdcKRn5uzAIX19SPNc3FnCz4yjjXpiz5GGGchCnaPQoesH0-",
+      content: `<h3>Rangkaian Upacara</h3><p>Upacara pembukaan PKKBN 2026 akan diselenggarakan dengan meriah.</p><h3>Detail</h3><ul><li>Tanggal: 11 Agustus 2026</li><li>Waktu: 08.00 - 10.00 WIB</li><li>Tempat: Lapangan Rektorat</li></ul>`
+    },
+    {
+      slug: "penting-batas-waktu-kehadiran",
+      category: "Info Penting",
+      categoryClass: "bg-tertiary-fixed text-on-tertiary-fixed",
+      title: "Penting: Batas Waktu Kehadiran 100%",
+      description: "Informasi tentang syarat kehadiran minimal 100% selama PKKBN.",
+      date: "05 Juli 2026",
+      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCZ5oSkvfePHgRzMTOnedvXg5at0snXmqaAFE_WuRjnqJ_FP-a0PH3nfX5kNY9pqaIzHeYrxbA5m_KGczDX_e5pTGOlGbeCLLTED2OIUHPh42lneJYivGmp8WktTJkN1Y6GoXHM9onhjswAzxzwuJVY4ENL4KAZ6Ei2kLya2w8-iUGPnpbjEA62edVa-Wg2bDgLMrx98NYrAk0iIla0GdP21vObnX5H5Vxrguzo4BexZRqC1uHW6btFBWncKWjffZ5IUJoLpYcmnvNx",
+      content: `<h3>Syarat Kelulusan</h3><p>Kehadiran minimal <strong>100%</strong> adalah syarat mutlak kelulusan PKKBN.</p><h3>Jam Presensi</h3><ul><li>Hadir 30 menit sebelum acara dimulai.</li><li>Keterlambatan lebih dari 15 menit tidak dihitung hadir.</li></ul>`
+    }
+  ];
+
+  return announcements.map((item) => ({
+    params: { slug: item.slug },
+    props: { announcement: item }
+  }));
+}
+
+const { announcement } = Astro.props;
+---
+
+<MainLayout title={`${announcement.title} - PKKBN 2026`}>
+  <main class="max-w-4xl mx-auto px-4 md:px-6 space-y-6 md:space-y-8 pt-8 md:pt-12 pb-16 md:pb-24">
+    <article class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm border border-outline-variant/10">
+      <img class="w-full h-48 md:h-80 object-cover" src={announcement.image} alt={announcement.title} />
+      <div class="p-5 md:p-8 space-y-4 md:space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+          <span class={`inline-block px-3 py-1.5 md:px-4 md:py-1.5 ${announcement.categoryClass} text-xs font-bold uppercase rounded-full tracking-wider w-fit`}>
+            {announcement.category}
+          </span>
+          <span class="text-sm text-on-surface-variant">{announcement.date}</span>
+        </div>
+
+        <h1 class="text-xl md:text-3xl font-bold text-primary">{announcement.title}</h1>
+        <p class="text-base md:text-lg text-on-surface-variant">{announcement.description}</p>
+
+        <div class="prose prose-sm md:prose max-w-none pt-4 border-t border-outline-variant/20" set:html={announcement.content} />
+      </div>
+    </article>
+
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pt-4">
+      <span class="text-sm text-on-surface-variant order-2 sm:order-1">Diposting pada {announcement.date}</span>
+      <a href="/announcements" class="inline-flex items-center justify-center gap-2 bg-primary text-white px-5 py-2.5 md:px-6 md:py-3 rounded-full text-sm md:text-base font-semibold hover:bg-primary/90 transition-colors order-1 sm:order-2 w-full sm:w-auto">
+        <span class="material-symbols-outlined text-lg md:text-xl">list</span>
+        Lihat Pengumuman Lainnya
+      </a>
+    </div>
+  </main>
+</MainLayout>

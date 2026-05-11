@@ -1,0 +1,271 @@
+---
+const faculties = [
+  {
+    abbrev: "FEB",
+    name: "Fakultas Ekonomi dan Bisnis",
+    day2Events: [
+      { time: "08:00 - 09:00", title: "Registrasi & Verifikasi Peserta", location: "Lobby FEB" },
+      { time: "09:00 - 10:30", title: "Pengenalan Dekanat & Visi Misi FEB", location: "Aula FEB" },
+      { time: "10:00 - 12:00", title: "Profil Lulusan & Prospect Career", location: "Aula Utama" },
+      { time: "12:00 - 13:00", title: "ISHOMA", location: "Kantin FEB" },
+      { time: "13:00 - 15:00", title: "Orientasi Dosen & Tutor", location: "Ruang Sidang" },
+      { time: "15:00 - 17:00", title: "Expo UKM & Ormawa FEB", location: "Hall FEB" }
+    ],
+    programs: ["Akuntansi", "Manajemen", "Ekonomi Pembangunan", "Perbankan dan Keuangan"]
+  },
+  {
+    abbrev: "FTI",
+    name: "Fakultas Teknik Industri",
+    day2Events: [
+      { time: "08:00 - 09:00", title: "Registrasi & Verifikasi Peserta", location: "Lobby FTI" },
+      { time: "09:00 - 10:30", title: "Pengenalan Dekanat & Visi Misi FTI", location: "Aula FTI" },
+      { time: "10:00 - 12:00", title: "Profil Lulusan & Prospect Career", location: "Ruang Sidang 1" },
+      { time: "12:00 - 13:00", title: "ISHOMA", location: "Kantin FTI" },
+      { time: "13:00 - 15:00", title: "Orientasi Dosen & Tutor", location: "Ruang Meeting" },
+      { time: "15:00 - 17:00", title: "Expo UKM & Ormawa FTI", location: "Hall Utama FTI" }
+    ],
+    programs: ["Teknik Industri", "Teknik Kimia", "Teknik Mesin", "Teknik Elektro"]
+  },
+  {
+    abbrev: "FTM",
+    name: "Fakultas Teknologi Mineral",
+    day2Events: [
+      { time: "08:00 - 09:00", title: "Registrasi & Verifikasi Peserta", location: "Lobby FTM" },
+      { time: "09:00 - 10:30", title: "Pengenalan Dekanat & Visi Misi FTM", location: "Aula FTM" },
+      { time: "10:00 - 12:00", title: "Profil Lulusan & Prospect Career", location: "Ruang Seminar" },
+      { time: "12:00 - 13:00", title: "ISHOMA", location: "Kantin FTM" },
+      { time: "13:00 - 15:00", title: "Orientasi Dosen & Tutor", location: "Ruang Kuliah 101" },
+      { time: "15:00 - 17:00", title: "Expo UKM & Ormawa FTM", location: "Hall FTM" }
+    ],
+    programs: ["Teknik Geologi", "Teknik Pertambangan", "Teknik Geodesi", "Teknik Perminyakan"]
+  },
+  {
+    abbrev: "FIKOM",
+    name: "Fakultas Ilmu Komunikasi",
+    day2Events: [
+      { time: "08:00 - 09:00", title: "Registrasi & Verifikasi Peserta", location: "Lobby FIKOM" },
+      { time: "09:00 - 10:30", title: "Pengenalan Dekanat & Visi Misi FIKOM", location: "Aula FIKOM" },
+      { time: "10:00 - 12:00", title: "Profil Lulusan & Prospect Career", location: "Studio Utama" },
+      { time: "12:00 - 13:00", title: "ISHOMA", location: "Kantin FIKOM" },
+      { time: "13:00 - 15:00", title: "Orientasi Dosen & Tutor", location: "Ruang Meeting" },
+      { time: "15:00 - 17:00", title: "Expo UKM & Ormawa FIKOM", location: "Hall FIKOM" }
+    ],
+    programs: ["Ilmu Komunikasi", "Hubungan Masyarakat", "Broadcasting", "Jurnalistik"]
+  },
+  {
+    abbrev: "FH",
+    name: "Fakultas Hukum",
+    day2Events: [
+      { time: "08:00 - 09:00", title: "Registrasi & Verifikasi Peserta", location: "Lobby FH" },
+      { time: "09:00 - 10:30", title: "Pengenalan Dekanat & Visi Misi FH", location: "Aula Utama FH" },
+      { time: "10:00 - 12:00", title: "Profil Lulusan & Prospect Career", location: "Ruang Sidang" },
+      { time: "12:00 - 13:00", title: "ISHOMA", location: "Kantin FH" },
+      { time: "13:00 - 15:00", title: "Orientasi Dosen & Tutor", location: "Ruang Kuliah 1" },
+      { time: "15:00 - 17:00", title: "Expo UKM & Ormawa FH", location: "Hall FH" }
+    ],
+    programs: ["Ilmu Hukum"]
+  }
+];
+---
+
+<div class="space-y-6" x-data="{ activeTab: 'faculty', filter: 'all' }">
+  <!-- Day Toggle -->
+  <div class="flex bg-surface-container-low p-1 rounded-full max-w-md mx-auto">
+    <button
+      @click="activeTab = 'faculty'"
+      :class="activeTab === 'faculty' ? 'bg-primary text-white' : 'text-on-surface-variant'"
+      class="flex-1 py-3 px-6 rounded-full text-sm font-bold transition-all">
+      Day 2 - Faculty
+    </button>
+    <button
+      @click="activeTab = 'program'"
+      :class="activeTab === 'program' ? 'bg-primary text-white' : 'text-on-surface-variant'"
+      class="flex-1 py-3 px-6 rounded-full text-sm font-bold transition-all">
+      Day 3 - Program Study
+    </button>
+  </div>
+
+  <!-- Faculty Filter (visible on Day 3) -->
+  <div x-show="activeTab === 'program'" x-transition class="flex flex-wrap gap-2 justify-center">
+    <button
+      @click="filter = 'all'"
+      :class="filter === 'all' ? 'bg-primary text-white' : 'bg-surface-container-low text-on-surface-variant hover:bg-surface-container'"
+      class="px-4 py-2 rounded-full text-sm font-semibold transition-all">
+      All
+    </button>
+    {faculties.map((faculty) => (
+      <button
+        @click={`filter = '${faculty.abbrev}'`}
+        :class={`filter === '${faculty.abbrev}' ? 'bg-primary text-white' : 'bg-surface-container-low text-on-surface-variant hover:bg-surface-container'`}
+        class="px-4 py-2 rounded-full text-sm font-semibold transition-all">
+        {faculty.abbrev}
+      </button>
+    ))}
+  </div>
+
+  <!-- Faculty Tab Content -->
+  <div x-show="activeTab === 'faculty'" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+      {faculties.map((faculty, fIndex) => (
+        <div class="rounded-xl overflow-hidden shadow-sm border border-outline-variant/10" data-faculty={fIndex}>
+          <button
+            class="faculty-header w-full flex items-center justify-between p-4 bg-surface-container-low hover:bg-surface-container transition-colors text-left group"
+            onclick={`toggleFaculty(${fIndex})`}>
+            <div class="flex items-center gap-3">
+              <span class="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center font-bold">
+                {faculty.abbrev}
+              </span>
+              <span class="font-bold">{faculty.name}</span>
+            </div>
+            <span class={`faculty-icon-${fIndex} material-symbols-outlined text-primary transition-transform`}>
+              expand_more
+            </span>
+          </button>
+          <div class={`faculty-content-${fIndex} hidden bg-surface-container-lowest p-4 space-y-2`}>
+            {faculty.day2Events.map((event) => (
+              <div class="flex gap-3 p-2 bg-surface-container-low rounded-lg text-sm">
+                <span class="text-xs font-bold text-secondary bg-secondary/10 px-2 py-1 rounded whitespace-nowrap">{event.time}</span>
+                <div class="flex-1 min-w-0">
+                  <p class="font-medium truncate">{event.title}</p>
+                  <p class="text-xs text-on-surface-variant flex items-center gap-1">
+                    <span class="material-symbols-outlined text-xs">location_on</span>
+                    {event.location}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Program Study Tab Content -->
+  <div x-show="activeTab === 'program'" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100">
+    <!-- Info Message for All -->
+    <div x-show="filter === 'all'" class="bg-tertiary-fixed/20 border border-tertiary-fixed p-6 rounded-xl text-center">
+      <p class="text-on-tertiary-container flex flex-col items-center gap-2">
+        <span class="material-symbols-outlined text-4xl">info</span>
+        <span class="text-lg font-semibold">Untuk melihat kegiatan PKKBN di Program Studi/Jurusan</span>
+        <span class="text-sm">Pilih tab nama fakultas yang sesuai di atas</span>
+      </p>
+    </div>
+
+    <!-- Faculty Cards (only show when not All) -->
+    <div x-show="filter !== 'all'" class="space-y-4">
+      {faculties.map((faculty, fIndex) => (
+        <div
+          class="rounded-xl overflow-hidden shadow-sm border border-outline-variant/10"
+          x-show={`filter === '${faculty.abbrev}'`}
+          x-transition>
+          <div class="flex items-center gap-3 p-4 bg-surface-container-low">
+            <span class="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center font-bold">
+              {faculty.abbrev}
+            </span>
+            <div>
+              <span class="font-bold">{faculty.name}</span>
+              <p class="text-xs text-on-surface-variant">{faculty.programs.join(" • ")}</p>
+            </div>
+          </div>
+          <div class="bg-surface-container-lowest">
+            {faculty.programs.map((program, pIndex) => (
+              <div class="border-b border-outline-variant/10 last:border-0">
+                <button
+                  class="w-full flex items-center justify-between p-4 text-left hover:bg-surface-container transition-colors group"
+                  onclick={`toggleProgram('${fIndex}', '${pIndex}')`}>
+                  <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-secondary">school</span>
+                    <span class="font-semibold">{program}</span>
+                  </div>
+                  <span class={`program-icon-${fIndex}-${pIndex} material-symbols-outlined text-on-surface-variant group-hover:translate-y-0.5 transition-transform`}>
+                    expand_more
+                  </span>
+                </button>
+                <div class={`program-content-${fIndex}-${pIndex} hidden bg-surface-container-lowest p-4 space-y-2`}>
+                  <div class="flex gap-2 text-xs bg-surface-container-low p-2 rounded-lg">
+                    <span class="font-bold text-secondary whitespace-nowrap">08:00 - 09:00</span>
+                    <span>Registrasi & Verifikasi Peserta</span>
+                  </div>
+                  <div class="flex gap-2 text-xs bg-surface-container-low p-2 rounded-lg">
+                    <span class="font-bold text-secondary whitespace-nowrap">09:00 - 10:30</span>
+                    <span>Pengenalan Kajur & Staff Prodi</span>
+                  </div>
+                  <div class="flex gap-2 text-xs bg-surface-container-low p-2 rounded-lg">
+                    <span class="font-bold text-secondary whitespace-nowrap">10:30 - 12:00</span>
+                    <span>Kurikulum & Sistem Kredit</span>
+                  </div>
+                  <div class="flex gap-2 text-xs bg-tertiary-fixed/20 p-2 rounded-lg">
+                    <span class="font-bold text-on-tertiary whitespace-nowrap">12:00 - 13:00</span>
+                    <span>ISHOMA</span>
+                  </div>
+                  <div class="flex gap-2 text-xs bg-surface-container-low p-2 rounded-lg">
+                    <span class="font-bold text-secondary whitespace-nowrap">13:00 - 15:00</span>
+                    <span>Sosialisasi KRS Online</span>
+                  </div>
+                  <div class="flex gap-2 text-xs bg-surface-container-low p-2 rounded-lg">
+                    <span class="font-bold text-secondary whitespace-nowrap">15:00 - 17:00</span>
+                    <span>Tour Fasilitas & Lab</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  let openFaculty = null;
+
+  function toggleFaculty(fIndex) {
+    const content = document.querySelector(`.faculty-content-${fIndex}`);
+    const icon = document.querySelector(`.faculty-icon-${fIndex}`);
+    
+    // Close currently open accordion
+    if (openFaculty !== null && openFaculty !== fIndex) {
+      const prevContent = document.querySelector(`.faculty-content-${openFaculty}`);
+      const prevIcon = document.querySelector(`.faculty-icon-${openFaculty}`);
+      if (prevContent) prevContent.classList.add('hidden');
+      if (prevIcon) prevIcon.style.transform = '';
+    }
+    
+    // Toggle clicked accordion
+    if (content.classList.contains('hidden')) {
+      content.classList.remove('hidden');
+      icon.style.transform = 'rotate(180deg)';
+      openFaculty = fIndex;
+    } else {
+      content.classList.add('hidden');
+      icon.style.transform = '';
+      openFaculty = null;
+    }
+  }
+
+  let openProgram = null;
+
+  function toggleProgram(fIndex, pIndex) {
+    const content = document.querySelector(`.program-content-${fIndex}-${pIndex}`);
+    const icon = document.querySelector(`.program-icon-${fIndex}-${pIndex}`);
+    
+    // Close currently open accordion
+    if (openProgram !== null && openProgram !== `${fIndex}-${pIndex}`) {
+      const prevContent = document.querySelector(`.program-content-${openProgram.split('-')[0]}-${openProgram.split('-')[1]}`);
+      const prevIcon = document.querySelector(`.program-icon-${openProgram.split('-')[0]}-${openProgram.split('-')[1]}`);
+      if (prevContent) prevContent.classList.add('hidden');
+      if (prevIcon) prevIcon.style.transform = '';
+    }
+    
+    // Toggle clicked accordion
+    if (content.classList.contains('hidden')) {
+      content.classList.remove('hidden');
+      icon.style.transform = 'rotate(180deg)';
+      openProgram = `${fIndex}-${pIndex}`;
+    } else {
+      content.classList.add('hidden');
+      icon.style.transform = '';
+      openProgram = null;
+    }
+  }
+</script>

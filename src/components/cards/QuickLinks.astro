@@ -1,0 +1,63 @@
+---
+const quickLinks = [
+  {
+    title: "Info Lokasi",
+    description: "Peta dan info lokasi kegiatan di dalam dan luar kampus.",
+    icon: "location_on",
+    href: "/locations",
+    color: "primary"
+  },
+  {
+    title: "Jadwal",
+    description: "Linimasa lengkap rangkaian acara dari pembukaan hingga penutupan.",
+    icon: "event",
+    href: "/schedule",
+    color: "secondary"
+  },
+  {
+    title: "Gugus",
+    description: "Cek daftar pembagian kelompok dan pendamping (Co-Facil) kamu.",
+    icon: "groups",
+    href: "/groups",
+    color: "tertiary"
+  },
+  {
+    title: "Penugasan",
+    description: "Daftar tugas wajib individu dan kelompok selama masa PKKBN.",
+    icon: "edit_document",
+    href: "/assignments",
+    color: "error"
+  }
+];
+---
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+  {quickLinks.map((link) => (
+    <a
+      href={link.href}
+      class="group bg-surface-container-lowest p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all border border-outline-variant/10">
+      <div
+        class:list={[
+          "w-12 h-12 rounded-xl flex items-center justify-center mb-6 transition-colors",
+          link.color === 'primary' && "bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white",
+          link.color === 'secondary' && "bg-secondary/10 text-secondary group-hover:bg-secondary group-hover:text-white",
+          link.color === 'tertiary' && "bg-tertiary-fixed-dim/30 text-on-tertiary-container group-hover:bg-tertiary-container group-hover:text-white",
+          link.color === 'error' && "bg-error-container/50 text-error group-hover:bg-error group-hover:text-white"
+        ]}>
+        <span class="material-symbols-outlined">{link.icon}</span>
+      </div>
+      <h3 class="text-xl font-bold mb-2">{link.title}</h3>
+      <p class="text-sm text-on-surface-variant mb-4">{link.description}</p>
+      <span
+        class:list={[
+          "font-bold text-sm flex items-center gap-1 group-hover:translate-x-2 transition-transform",
+          link.color === 'primary' && "text-primary",
+          link.color === 'secondary' && "text-secondary",
+          link.color === 'tertiary' && "text-on-tertiary-container",
+          link.color === 'error' && "text-error"
+        ]}>
+        {link.title === "Gugus" ? "Cek Gugus" : link.title === "Penugasan" ? "Lihat Tugas" : "Selengkapnya"} <span class="material-symbols-outlined text-xs">arrow_forward</span>
+      </span>
+    </a>
+  ))}
+</div>

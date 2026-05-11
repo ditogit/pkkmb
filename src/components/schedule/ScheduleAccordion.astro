@@ -1,0 +1,147 @@
+---
+const schedules = [
+  {
+    day: "1",
+    date: "11",
+    month: "Agustus",
+    title: "Kegiatan Universitas",
+    description: "Kegiatan yang diikuti semua mahasiswa baru",
+    events: [
+      { time: "07:00 - 08:00", title: "Registrasi & Verifikasi Peserta", location: "Lobby Utama" },
+      { time: "08:00 - 10:00", title: "Upacara Pembukaan PKKBN", location: "Lapangan Rektorat" },
+      { time: "10:00 - 10:30", title: "Sambutan Rector & Dekan", location: "Aula Lantai 2" },
+      { time: "10:30 - 12:00", title: "Stadium General", location: "Gedung A" },
+      { time: "12:00 - 13:00", title: "ISHOMA", location: "Kantin Pusat" },
+      { time: "13:00 - 15:00", title: "Penguatan Nilai Bela Negara", location: "Aula Utama" },
+      { time: "15:00 - 17:00", title: "Games & Ice Breaking", location: "Halaman Campus Center" }
+    ]
+  },
+  {
+    day: "2",
+    date: "12",
+    month: "Agustus",
+    title: "Kegiatan Fakultas",
+    description: "Kegiatan yang diadakan oleh masing-masing fakultas",
+    events: [
+      { time: "08:00 - 10:00", title: "Pengenalan Dekanat & Visi Misi", location: "Gedung Dekanat" },
+      { time: "10:00 - 12:00", title: "Profil Lulusan & Prospect Career", location: "Aula FT" },
+      { time: "12:00 - 13:00", title: "ISHOMA", location: "Kantin FT" },
+      { time: "13:00 - 15:00", title: "Orientasi Dosen & Tutor", location: "Ruang Sidang" },
+      { time: "15:00 - 17:00", title: "Expo UKM & Ormawa", location: "Hall FT" }
+    ]
+  },
+  {
+    day: "3",
+    date: "13",
+    month: "Agustus",
+    title: "Kegiatan Program Studi",
+    description: "Kegiatan yang diadakan oleh masing-masing prodi/jurusan",
+    events: [
+      { time: "08:00 - 10:00", title: "Pengenalan Kajur & Staff", location: "Ruang Prodi" },
+      { time: "10:00 - 12:00", title: "Kurikulum & Sistem Kredit", location: "Kelas A" },
+      { time: "12:00 - 13:00", title: "ISHOMA", location: "Kantin Prodi" },
+      { time: "13:00 - 15:00", title: "Sosialisasi KRS Online", location: "Lab Komputer" },
+      { time: "15:00 - 17:00", title: "Tour Fasilitas & Lab", location: "Laboratorium" }
+    ]
+  },
+  {
+    day: "4",
+    date: "14",
+    month: "Agustus",
+    title: "Kegiatan Indoor",
+    description: "Berbagai kegiatan indoor untuk membangun teamwork",
+    events: [
+      { time: "08:00 - 10:00", title: "Workshop Public Speaking", location: "Aula B" },
+      { time: "10:00 - 12:00", title: "Leadership Training", location: "Ruang Meeting" },
+      { time: "12:00 - 13:00", title: "ISHOMA", location: "Kantin Indoor" },
+      { time: "13:00 - 15:00", title: "Seminar Entrepreneurship", location: "Aula Utama" },
+      { time: "15:00 - 17:00", title: "Group Discussion", location: "Ruang Kelas" }
+    ]
+  },
+  {
+    day: "5",
+    date: "15",
+    month: "Agustus",
+    title: "Kegiatan Outdoor",
+    description: "Aktivitas outdoor untuk kebersamaan dan sportivitas",
+    events: [
+      { time: "07:00 - 09:00", title: "Senam & Games pagi", location: "Lapangan Outdoor" },
+      { time: "09:00 - 12:00", title: "Olahraga & Competitive Games", location: "Stadion" },
+      { time: "12:00 - 13:00", title: "ISHOMA", location: "Shelter A" },
+      { time: "13:00 - 15:00", title: "Outbound & Team Building", location: "Halaman Campus" },
+      { time: "15:00 - 17:00", title: "Closing Ceremony Outdoor", location: "Amphitheater" }
+    ]
+  },
+  {
+    day: "6",
+    date: "16",
+    month: "Agustus",
+    title: "Penutupan",
+    description: "Acar penutup PKKBN dan pelepasan mahasiswa baru",
+    events: [
+      { time: "08:00 - 09:00", title: "Pembukaan & Doa", location: "Aula Utama" },
+      { time: "09:00 - 10:30", title: "Pemutakhiran File Kegiatan", location: "Hall Utama" },
+      { time: "10:30 - 11:00", title: "Sambutan Dean of Students", location: "Aula Utama" },
+      { time: "11:00 - 12:00", title: "Pengumuman Kelulusan & Award", location: "Aula Utama" },
+      { time: "12:00 - 13:00", title: "ISHOMA", location: "Kantin Utama" },
+      { time: "13:00 - 15:00", title: "Upacara Penutupan", location: "Lapangan Rektorat" },
+      { time: "15:00 - Selesai", title: "Dokumentasi & Photo Session", location: "Halaman Campus" }
+    ]
+  }
+];
+---
+
+<div class="space-y-6" x-data="{ activeTab: 0 }">
+  <!-- Tab Navigation -->
+  <div class="bg-surface-container-low p-2 rounded-full flex overflow-x-auto scrollbar-hide gap-2">
+    {schedules.map((schedule, index) => (
+      <button
+        x-on:click={`activeTab = ${index}`}
+        :class={`activeTab === ${index} ? 'bg-white shadow-sm text-primary' : 'text-on-surface-variant hover:text-primary'`}
+        class="flex-1 min-w-[100px] py-3 px-4 rounded-full text-sm font-bold transition-all whitespace-nowrap">
+        <span class="block text-xs font-normal opacity-70">Hari {schedule.day}</span>
+        <span class="block">{schedule.date} {schedule.month}</span>
+      </button>
+    ))}
+  </div>
+
+  <!-- Tab Content -->
+  {schedules.map((schedule, index) => (
+    <div x-show={`activeTab === ${index}`} x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 transform translate-y-2" x-transition:enter-end="opacity-100 transform translate-y-0">
+      <div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-outline-variant/10">
+        <div class="flex items-start justify-between mb-6 pb-6 border-b border-outline-variant/10">
+          <div>
+            <h3 class="text-2xl font-bold text-primary">Hari {schedule.day}</h3>
+            <p class="text-on-surface-variant">{schedule.description}</p>
+          </div>
+          <div class="text-center bg-primary/10 px-4 py-2 rounded-xl">
+            <div class="text-2xl font-bold text-primary">{schedule.date}</div>
+            <div class="text-[10px] font-bold uppercase text-outline">{schedule.month}</div>
+          </div>
+        </div>
+
+        <h4 class="font-bold text-lg mb-4 flex items-center gap-2">
+          <span class="material-symbols-outlined text-secondary">schedule</span>
+          Detail Kegiatan
+        </h4>
+
+        <div class="space-y-4">
+          {schedule.events.map((event) => (
+            <div class="flex gap-4 p-4 bg-surface-container-low rounded-xl hover:bg-surface-container transition-colors">
+              <div class="text-center min-w-[70px] flex-shrink-0">
+                <div class="text-sm font-bold text-primary bg-primary/10 px-2 py-1 rounded-lg">{event.time}</div>
+              </div>
+              <div class="flex-1">
+                <h5 class="font-bold">{event.title}</h5>
+                <p class="text-sm text-on-surface-variant flex items-center gap-1 mt-1">
+                  <span class="material-symbols-outlined text-xs">location_on</span>
+                  {event.location}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  ))}
+</div>

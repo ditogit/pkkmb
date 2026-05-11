@@ -1,0 +1,37 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout title="Buku Panduan - PKKBN 2026">
+  <main class="max-w-7xl mx-auto px-6 space-y-8 pt-12 pb-24">
+    <div class="text-center space-y-4">
+      <h1 class="text-4xl font-bold text-primary">Buku Panduan</h1>
+      <p class="text-on-surface-variant max-w-2xl mx-auto">
+        Panduan lengkap kegiatan pengenalan kehidupan kampus bela negara (PKKBN) UPN Veteran Yogyakarta
+      </p>
+    </div>
+
+    <div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-lg border border-outline-variant/10">
+      <div class="aspect-[3/4] md:aspect-[16/10] w-full">
+        <iframe 
+          src="https://drive.google.com/file/d/1ek-jMBQMthouMINoaCiECQJ0pBWEf0Za/preview" 
+          class="w-full h-full"
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowfullscreen
+          title="Buku Panduan PKKBN 2026">
+        </iframe>
+      </div>
+    </div>
+
+    <div class="flex justify-center">
+      <a 
+        href="https://drive.google.com/uc?export=download&id=1ek-jMBQMthouMINoaCiECQJ0pBWEf0Za"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-full font-semibold hover:bg-primary/90 transition-colors">
+        <span class="material-symbols-outlined">download</span>
+        Download PDF
+      </a>
+    </div>
+  </main>
+</MainLayout>

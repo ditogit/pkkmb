@@ -1,0 +1,27 @@
+---
+const announcements = [
+  { slug: "prosedur-pengambilan-atribut-pkkbn", category: "Info Penting", categoryClass: "bg-tertiary-fixed text-on-tertiary-fixed", title: "Prosedur Pengambilan Atribut PKKBN", description: "Panduan teknis pengambilan kaos, topi, dan name tag peserta.", date: "12 Juli 2026", image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCZ5oSkvfePHgRzMTOnedvXg5at0snXmqaAFE_WuRjnqJ_FP-a0PH3nfX5kNY9pqaIzHeYrxbA5m_KGczDX_e5pTGOlGbeCLLTED2OIUHPh42lneJYivGmp8WktTJkN1Y6GoXHM9onhjswAzxzwuJVY4ENL4KAZ6Ei2kLya2w8-iUGPnpbjEA62edVa-Wg2bDgLMrx98NYrAk0iIla0GdP21vObnX5H5Vxrguzo4BexZRqC1uHW6btFBWncKWjffZ5IUJoLpYcmnvNx" },
+  { slug: "sosialisasi-krs-online-mahasiswa-baru", category: "Akademik", categoryClass: "bg-secondary-fixed text-on-secondary-fixed", title: "Sosialisasi KRS Online Mahasiswa Baru", description: "Jadwal pengisian kartu rencana studi untuk semester ganjil.", date: "10 Juli 2026", image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDVNQqOdFzQrmP7Dy5n-ix7IbTL4MVvHLP8F34RQmsj-vzhWZUtS00GVR3zxslQWABAeNoUCcqu6eWWWUnIh5NVgI1PKulqW5-RW5AaC1I5kLVS73W9-qLz15ps_o0uhsIXhwugjo2G5GQfN35ksg1V3oGGZ9J2HGlWql5hghbFFoZ5fslBb3teyUDm4xl0IyBGnONP-yilLjJWoj4rZb0CWKGosH_m5J4aXZ0jgB3BU6pV0oYkIL5FiaUS5qvuvqyu0zRE4vN0QnuO" },
+  { slug: "pelepasan-burung-upacara-pembukaan", category: "Acara", categoryClass: "bg-primary-fixed text-on-primary-fixed", title: "Pelepasan Burung di Upacara Pembukaan", description: "Detail rangkaian upacara pembukaan PKKBN 2026 di Lapangan Rektorat.", date: "08 Juli 2026", image: "https://lh3.googleusercontent.com/aida-public/AB6AXuA2IepVpZk-5UcYFEPcZz4ckjc8D5gBULUZcQefMAFhLHT0BJMdRGq33XFk7PiZr-1mVvE2d0ZER-4kaz1pee1deVTuMZHC-kj_4d6y48RyfIFEfNVltcaAxJtHhMrVrpiGMiMvBqcZIjWK7dHwKmg4NJbOghGpbu8vn_gz6MPCUoMwUCEzQ74Go1kbyVA7edByVzZGQGqEVooJ845JzWbYK-nSI52pcdcKRn5uzAIX19SPNc3FnCz4yjjXpiz5GGGchCnaPQoesH0-" },
+  { slug: "penting-batas-waktu-kehadiran", category: "Info Penting", categoryClass: "bg-tertiary-fixed text-on-tertiary-fixed", title: "Penting: Batas Waktu Kehadiran 100%", description: "Informasi tentang syarat kehadiran minimal 100% selama PKKBN.", date: "05 Juli 2026", image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCZ5oSkvfePHgRzMTOnedvXg5at0snXmqaAFE_WuRjnqJ_FP-a0PH3nfX5kNY9pqaIzHeYrxbA5m_KGczDX_e5pTGOlGbeCLLTED2OIUHPh42lneJYivGmp8WktTJkN1Y6GoXHM9onhjswAzxzwuJVY4ENL4KAZ6Ei2kLya2w8-iUGPnpbjEA62edVa-Wg2bDgLMrx98NYrAk0iIla0GdP21vObnX5H5Vxrguzo4BexZRqC1uHW6btFBWncKWjffZ5IUJoLpYcmnvNx" }
+];
+---
+
+<div class="space-y-4 md:space-y-6">
+  {announcements.map((item) => (
+    <a href={`/announcements/${item.slug}`} class="flex flex-col md:flex-row gap-4 md:gap-6 bg-surface-container-lowest p-4 md:p-6 rounded-2xl hover:shadow-lg transition-shadow border border-outline-variant/10 group">
+      <img class="w-full md:w-32 h-40 md:h-32 object-cover rounded-xl flex-shrink-0 hidden md:block" src={item.image} alt={item.title} />
+      <div class="flex-1 min-w-0">
+        <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2">
+          <span class={`inline-block w-fit px-2.5 py-1 ${item.categoryClass} text-[10px] font-bold uppercase rounded-full tracking-wider`}>{item.category}</span>
+          <span class="text-xs text-outline">{item.date}</span>
+        </div>
+        <h3 class="text-base md:text-lg font-bold mb-2 group-hover:text-secondary transition-colors">{item.title}</h3>
+        <p class="text-sm text-on-surface-variant line-clamp-2">{item.description}</p>
+        <span class="inline-flex items-center gap-1 text-sm font-semibold text-secondary mt-2 md:mt-3 group-hover:underline">
+          Baca Selengkapnya <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </span>
+      </div>
+    </a>
+  ))}
+</div>

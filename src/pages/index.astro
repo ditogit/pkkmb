@@ -1,17 +1,266 @@
 ---
-
+import MainLayout from "../layouts/MainLayout.astro";
+import QuickLinks from "../components/cards/QuickLinks.astro";
+import AnnouncementCards from "../components/announcements/AnnouncementCards.astro";
+import ScheduleAccordion from "../components/schedule/ScheduleAccordion.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<MainLayout title="PKKBN 2026 - UPN Veteran Yogyakarta">
+  <main
+    class="w-full max-w-7xl mx-auto px-4 md:px-6 space-y-16 md:space-y-24 pt-8 md:pt-12 pb-16 md:pb-24">
+    <!-- Hero Section -->
+    <section
+      class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
+      <div class="space-y-6 md:space-y-8 order-2 lg:order-1">
+        <div class="space-y-4">
+          <h1
+            class="text-4xl md:text-6xl font-extrabold tracking-tight text-primary leading-tight">
+            PKKBN 2026
+          </h1>
+          <p
+            class="text-sm md:text-base text-on-surface-variant max-w-lg leading-relaxed">
+            Selamat datang Mahasiswa Baru ! Mulainya perjalanan akademikmu di
+            UPN Veteran Yogyakarta dengan semangat Bela Negara dan integritas
+            tinggi.
+          </p>
+          <a
+            href="/guide"
+            class="inline-flex items-center gap-2 bg-gradient-to-br from-primary to-primary-container text-white px-5 md:px-6 py-2.5 md:py-3 rounded-xl text-sm md:text-base font-semibold hover:shadow-lg hover:shadow-primary/20 transition-all">
+            <span class="material-symbols-outlined">menu_book</span>
+            Buku Panduan
+          </a>
+        </div>
+      </div>
+      <div class="relative order-1 lg:order-2">
+        <div
+          class="absolute inset-0 bg-secondary-container/10 rounded-3xl -rotate-3 scale-105">
+        </div>
+        <img
+          class="relative z-10 w-full h-64 md:h-[500px] object-cover rounded-3xl shadow-2xl"
+          alt="Group of diverse university students"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCM4jyKsf3czcdB3VkSei4ceTVHpD0pBy1LKKFV3fthhPRaslrqjDrZAP_nMviSinN3pHN5-paS7PGyhmF9aJfs-MKHYoVfZCLDkWpvBe8qdEsIvObYTZovZnUMgpU1Qi-OJTmWHiUplp8hhWKj_vj65sZx2mw0Tlz9L5aJ-qAjpCHdrC7jZXOkJbxRNHV-PIKccKGROA20DQ0JPo8GXtD452K1OjGulsYxyr45z1FCZshqI6Sk2S2RQQiNpaYdQ_nk5vf5yGIjJcyt"
+        />
+      </div>
+    </section>
+
+    <!-- Quick Access Bento Grid -->
+    <section class="space-y-6 md:space-y-8">
+      <div class="flex flex-col sm:items-end justify-between gap-2">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold text-primary">
+            Akses Cepat
+          </h2>
+          <p class="text-sm md:text-base text-on-surface-variant">
+            Temukan kebutuhan utamamu di sini
+          </p>
+        </div>
+      </div>
+      <QuickLinks />
+    </section>
+
+    <!-- Pengumuman Terbaru -->
+    <section class="space-y-6 md:space-y-8">
+      <div
+        class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+        <h2 class="text-2xl md:text-3xl font-bold text-primary">
+          Pengumuman Terbaru
+        </h2>
+        <a
+          class="text-secondary font-bold hover:underline text-sm md:text-base"
+          href="/announcements">Lihat Semua</a
+        >
+      </div>
+      <AnnouncementCards />
+    </section>
+
+    <!-- Jadwal PKKBN -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12">
+      <div class="lg:col-span-4 space-y-4">
+        <h2 class="text-2xl md:text-3xl font-bold text-primary">
+          Jadwal PKKBN
+        </h2>
+        <p class="text-sm md:text-base text-on-surface-variant">
+          Pilih fakultas kamu untuk melihat detail agenda kegiatan harian secara
+          spesifik.
+        </p>
+        <div
+          class="p-4 md:p-6 bg-primary text-white rounded-2xl md:rounded-3xl space-y-4 shadow-lg shadow-primary/20">
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined">info</span>
+            <span class="font-bold">Informasi Penting</span>
+          </div>
+          <p class="text-sm text-primary-fixed leading-relaxed">
+            Kehadiran minimal 100% adalah syarat mutlak kelulusan PKKBN.
+            Pastikan hadir 30 menit sebelum acara dimulai.
+          </p>
+        </div>
+      </div>
+      <div class="lg:col-span-8">
+        <ScheduleAccordion />
+      </div>
+    </section>
+
+    <!-- Emergency Info Section -->
+    <section class="space-y-6 md:space-y-8">
+      <div class="text-center">
+        <h2 class="text-2xl md:text-3xl font-bold text-primary">
+          Layanan Aduan & Kontak Darurat
+        </h2>
+        <p class="text-sm md:text-base text-on-surface-variant mt-2">
+          Hubungi layanan yang sesuai jika mengalami kendala selama PKKBN
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+        <!-- Aduan Umum -->
+        <div
+          class="bg-surface-container-lowest p-4 md:p-6 rounded-2xl border border-outline-variant/10">
+          <div class="flex items-center gap-3 mb-4">
+            <span
+              class="material-symbols-outlined bg-primary/10 text-primary p-2 md:p-3 rounded-xl"
+              >support_agent</span
+            >
+            <h3 class="font-bold text-base md:text-lg text-primary">
+              Aduan Umum
+            </h3>
+          </div>
+          <ul class="space-y-3 text-sm">
+            <li class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-secondary text-sm"
+                >email</span
+              >
+              <a href="mailto:info@upnyk.ac.id" class="hover:text-secondary"
+                >info@upnyk.ac.id</a
+              >
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-secondary text-sm"
+                >chat</span
+              >
+              <a
+                href="https://wa.me/6285150772500"
+                target="_blank"
+                class="hover:text-secondary">0851 5077 2500</a
+              >
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-secondary text-sm"
+                >camera</span
+              >
+              <a
+                href="https://instagram.com/infoupnyk"
+                target="_blank"
+                class="hover:text-secondary">@infoupnyk</a
+              >
+            </li>
+          </ul>
+          <div
+            class="mt-4 pt-4 border-t border-outline-variant/10 text-xs text-on-surface-variant">
+            <p>Humas & Kerjasama, Lt. Dasar Rektorat</p>
+          </div>
+        </div>
+
+        <!-- Aduan Kesehatan -->
+        <div
+          class="bg-surface-container-lowest p-4 md:p-6 rounded-2xl border border-outline-variant/10">
+          <div class="flex items-center gap-3 mb-4">
+            <span
+              class="material-symbols-outlined bg-error-container/50 text-error p-2 md:p-3 rounded-xl"
+              >local_hospital</span
+            >
+            <h3 class="font-bold text-base md:text-lg text-error">
+              Aduan Kesehatan
+            </h3>
+          </div>
+          <ul class="space-y-3 text-sm">
+            <li class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-error text-sm"
+                >phone</span
+              >
+              <a
+                href="https://wa.me/6282136292973"
+                target="_blank"
+                class="hover:text-error">0821 3629 2973</a
+              >
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-error text-sm"
+                >phone</span
+              >
+              <a
+                href="https://wa.me/6285700383190"
+                target="_blank"
+                class="hover:text-error">0857 0038 3190</a
+              >
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-error text-sm"
+                >camera</span
+              >
+              <a
+                href="https://instagram.com/klinikupnvy"
+                target="_blank"
+                class="hover:text-error">@klinikupnvy</a
+              >
+            </li>
+          </ul>
+          <div
+            class="mt-4 pt-4 border-t border-outline-variant/10 text-xs text-on-surface-variant">
+            <p>Klinik Pratama UPNYK</p>
+          </div>
+        </div>
+
+        <!-- PPKS -->
+        <div
+          class="bg-surface-container-lowest p-4 md:p-6 rounded-2xl border border-tertiary-container">
+          <div class="flex items-center gap-3 mb-4">
+            <span
+              class="material-symbols-outlined bg-tertiary-fixed-dim/30 text-on-tertiary-container p-2 md:p-3 rounded-xl"
+              >shield</span
+            >
+            <h3
+              class="font-bold text-base md:text-lg text-on-tertiary-container">
+              Satgas PPKS
+            </h3>
+          </div>
+          <ul class="space-y-3 text-sm">
+            <li class="flex items-center gap-2">
+              <span
+                class="material-symbols-outlined text-on-tertiary-container text-sm"
+                >email</span
+              >
+              <a
+                href="mailto:satgas.ppks@upnyk.ac.id"
+                class="hover:text-on-tertiary-container"
+                >satgas.ppks@upnyk.ac.id</a
+              >
+            </li>
+            <li class="flex items-center gap-2">
+              <span
+                class="material-symbols-outlined text-on-tertiary-container text-sm"
+                >chat</span
+              >
+              <span>0812 4634 1960 (Surya)</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span
+                class="material-symbols-outlined text-on-tertiary-container text-sm"
+                >chat</span
+              >
+              <span>0859 7597 7067 (Nadya)</span>
+            </li>
+          </ul>
+          <div class="mt-4 pt-4 border-t border-outline-variant/10">
+            <a
+              href="https://bit.ly/lapor_satgasppksupnvy"
+              target="_blank"
+              class="text-xs font-semibold text-on-tertiary-container hover:underline flex items-center gap-1">
+              <span class="material-symbols-outlined text-xs">link</span>
+              Lapor via Google Form
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</MainLayout>
