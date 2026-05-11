@@ -7,7 +7,7 @@ export function getStaticPaths() {
       slug: "prosedur-pengambilan-atribut-pkkbn",
       category: "Info Penting",
       categoryClass: "bg-tertiary-fixed text-on-tertiary-fixed",
-      title: "Prosedur Pengambilan Atribut PKKBN",
+      title: "Prosedur Pengambilan Atribut PKKMB",
       description: "Panduan teknis pengambilan kaos, topi, dan name tag peserta.",
       date: "12 Juli 2026",
       image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCZ5oSkvfePHgRzMTOnedvXg5at0snXmqaAFE_WuRjnqJ_FP-a0PH3nfX5kNY9pqaIzHeYrxbA5m_KGczDX_e5pTGOlGbeCLLTED2OIUHPh42lneJYivGmp8WktTJkN1Y6GoXHM9onhjswAzxzwuJVY4ENL4KAZ6Ei2kLya2w8-iUGPnpbjEA62edVa-Wg2bDgLMrx98NYrAk0iIla0GdP21vObnX5H5Vxrguzo4BexZRqC1uHW6btFBWncKWjffZ5IUJoLpYcmnvNx",
@@ -28,20 +28,20 @@ export function getStaticPaths() {
       category: "Acara",
       categoryClass: "bg-primary-fixed text-on-primary-fixed",
       title: "Pelepasan Burung di Upacara Pembukaan",
-      description: "Detail rangkaian upacara pembukaan PKKBN 2026 di Lapangan Rektorat.",
+      description: "Detail rangkaian upacara pembukaan PKKMB 2026 di Lapangan Rektorat.",
       date: "08 Juli 2026",
       image: "https://lh3.googleusercontent.com/aida-public/AB6AXuA2IepVpZk-5UcYFEPcZz4ckjc8D5gBULUZcQefMAFhLHT0BJMdRGq33XFk7PiZr-1mVvE2d0ZER-4kaz1pee1deVTuMZHC-kj_4d6y48RyfIFEfNVltcaAxJtHhMrVrpiGMiMvBqcZIjWK7dHwKmg4NJbOghGpbu8vn_gz6MPCUoMwUCEzQ74Go1kbyVA7edByVzZGQGqEVooJ845JzWbYK-nSI52pcdcKRn5uzAIX19SPNc3FnCz4yjjXpiz5GGGchCnaPQoesH0-",
-      content: `<h3>Rangkaian Upacara</h3><p>Upacara pembukaan PKKBN 2026 akan diselenggarakan dengan meriah.</p><h3>Detail</h3><ul><li>Tanggal: 11 Agustus 2026</li><li>Waktu: 08.00 - 10.00 WIB</li><li>Tempat: Lapangan Rektorat</li></ul>`
+      content: `<h3>Rangkaian Upacara</h3><p>Upacara pembukaan PKKMB 2026 akan diselenggarakan dengan meriah.</p><h3>Detail</h3><ul><li>Tanggal: 11 Agustus 2026</li><li>Waktu: 08.00 - 10.00 WIB</li><li>Tempat: Lapangan Rektorat</li></ul>`
     },
     {
       slug: "penting-batas-waktu-kehadiran",
       category: "Info Penting",
       categoryClass: "bg-tertiary-fixed text-on-tertiary-fixed",
       title: "Penting: Batas Waktu Kehadiran 100%",
-      description: "Informasi tentang syarat kehadiran minimal 100% selama PKKBN.",
+      description: "Informasi tentang syarat kehadiran minimal 100% selama PKKMB.",
       date: "05 Juli 2026",
       image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCZ5oSkvfePHgRzMTOnedvXg5at0snXmqaAFE_WuRjnqJ_FP-a0PH3nfX5kNY9pqaIzHeYrxbA5m_KGczDX_e5pTGOlGbeCLLTED2OIUHPh42lneJYivGmp8WktTJkN1Y6GoXHM9onhjswAzxzwuJVY4ENL4KAZ6Ei2kLya2w8-iUGPnpbjEA62edVa-Wg2bDgLMrx98NYrAk0iIla0GdP21vObnX5H5Vxrguzo4BexZRqC1uHW6btFBWncKWjffZ5IUJoLpYcmnvNx",
-      content: `<h3>Syarat Kelulusan</h3><p>Kehadiran minimal <strong>100%</strong> adalah syarat mutlak kelulusan PKKBN.</p><h3>Jam Presensi</h3><ul><li>Hadir 30 menit sebelum acara dimulai.</li><li>Keterlambatan lebih dari 15 menit tidak dihitung hadir.</li></ul>`
+      content: `<h3>Syarat Kelulusan</h3><p>Kehadiran minimal <strong>100%</strong> adalah syarat mutlak kelulusan PKKMB.</p><h3>Jam Presensi</h3><ul><li>Hadir 30 menit sebelum acara dimulai.</li><li>Keterlambatan lebih dari 15 menit tidak dihitung hadir.</li></ul>`
     }
   ];
 
@@ -54,7 +54,7 @@ export function getStaticPaths() {
 const { announcement } = Astro.props;
 ---
 
-<MainLayout title={`${announcement.title} - PKKBN 2026`}>
+<MainLayout title={`${announcement.title} - PKKMB 2026`}>
   <main class="max-w-4xl mx-auto px-4 md:px-6 space-y-6 md:space-y-8 pt-8 md:pt-12 pb-16 md:pb-24">
     <article class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm border border-outline-variant/10">
       <img class="w-full h-48 md:h-80 object-cover" src={announcement.image} alt={announcement.title} />
