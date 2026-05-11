@@ -2,89 +2,100 @@
 const faqs = [
   {
     question: "Bagaimana jika saya terlambat hadir saat pembukaan?",
-    answer: "Hubungi Kakak Asuh Anda melalui grup WhatsApp untuk menginformasikan keterlambatan. Kakak Asuh akan membantu mengarahkan Anda untuk tetap bisa mengikuti kegiatan."
+    answer:
+      "Hubungi Kakak Asuh Anda melalui grup WhatsApp untuk menginformasikan keterlambatan. Kakak Asuh akan membantu mengarahkan Anda untuk tetap bisa mengikuti kegiatan.",
   },
   {
-    question: "Apa yang harus dilakukan jika saya sakit saat kegiatan berlangsung?",
-    answer: "Segera informasikan ke Kakak Asuh dan hubungi Layanan Aduan Kesehatan melalui WhatsApp Klinik Pratama UPNYK di 0821 3629 2973 atau 0857 0038 3190."
+    question:
+      "Apa yang harus dilakukan jika saya sakit saat kegiatan berlangsung?",
+    answer:
+      "Segera informasikan ke Kakak Asuh dan hubungi Layanan Aduan Kesehatan melalui WhatsApp Klinik Pratama UPM di 0821 3629 2973 atau 0857 0038 3190.",
   },
   {
-    question: "Saya lupa nomor gugus dan nama pendamping, kemana harus bertanya?",
-    answer: "Cek informasi kelompok Anda melalui halaman 'Kelompok' di website ini, atau tanyakan langsung ke Kakak Asuh di grup WhatsApp gugus Anda."
+    question:
+      "Saya lupa nomor gugus dan nama pendamping, kemana harus bertanya?",
+    answer:
+      "Cek informasi kelompok Anda melalui halaman 'Kelompok' di website ini, atau tanyakan langsung ke Kakak Asuh di grup WhatsApp gugus Anda.",
   },
   {
-    question: "Apakah ada persyaratan khusus untuk penggunaan kamera saat sesi online?",
-    answer: "Ya, peserta wajib menggunakan atribut PKKMB yang telah ditetapkan. Pastikan kamera menghadap ke arah peserta dan suasana sekitar sesuai dengan suasana kegiatan kampus."
+    question:
+      "Apakah ada persyaratan khusus untuk penggunaan kamera saat sesi online?",
+    answer:
+      "Ya, peserta wajib menggunakan atribut PKKMB yang telah ditetapkan. Pastikan kamera menghadap ke arah peserta dan suasana sekitar sesuai dengan suasana kegiatan kampus.",
   },
   {
     question: "Bagaimana cara pembagian gugus berdasarkan NIM?",
-    answer: "Pembagian gugus didasarkan pada 3 digit terakhir NIM Anda. Contoh: NIM berakhir 045 masuk ke Gugus 45. Setiap gugus terdiri dari mahasiswa dari berbagai program studi."
+    answer:
+      "Pembagian gugus didasarkan pada 3 digit terakhir NIM Anda. Contoh: NIM berakhir 045 masuk ke Gugus 45. Setiap gugus terdiri dari mahasiswa dari berbagai program studi.",
   },
   {
     question: "Apa sanksi jika melanggar tata tertib PKKMB?",
-    answer: "Sesuai Peraturan Rector Nomor 10 Tahun 2021 tentang Kode Etik Mahasiswa. Pelanggaran hukum pidana akan diproses sesuai peraturan perundang-undangan yang berlaku."
-  }
+    answer:
+      "Sesuai Peraturan Rector Nomor 10 Tahun 2021 tentang Kode Etik Mahasiswa. Pelanggaran hukum pidana akan diproses sesuai peraturan perundang-undangan yang berlaku.",
+  },
 ];
 ---
 
 <div class="space-y-3 md:space-y-4" id="faq-accordion">
-  {faqs.map((faq, index) => (
-    <div class="bg-surface-container-low rounded-2xl overflow-hidden">
-      <button 
-        class="faq-toggle w-full flex items-center justify-between text-left p-4 md:p-6 font-bold cursor-pointer hover:bg-surface-container transition-colors"
-        data-target={`faq-content-${index}`}
-        aria-expanded="false"
-      >
-        <span class="pr-4 text-sm md:text-base">{faq.question}</span>
-        <span class="material-symbols-outlined faq-icon transition-transform duration-200 text-lg md:text-xl">add</span>
-      </button>
-      <div 
-        id={`faq-content-${index}`}
-        class="faq-content max-h-0 overflow-hidden transition-max-height duration-300 ease-in-out"
-      >
-        <div class="px-4 md:px-6 pb-4 md:pb-6 text-sm md:text-base text-on-surface-variant">
-          {faq.answer}
+  {
+    faqs.map((faq, index) => (
+      <div class="bg-surface-container-low rounded-2xl overflow-hidden">
+        <button
+          class="faq-toggle w-full flex items-center justify-between text-left p-4 md:p-6 font-bold cursor-pointer hover:bg-surface-container transition-colors"
+          data-target={`faq-content-${index}`}
+          aria-expanded="false">
+          <span class="pr-4 text-sm md:text-base">{faq.question}</span>
+          <span class="material-symbols-outlined faq-icon transition-transform duration-200 text-lg md:text-xl">
+            add
+          </span>
+        </button>
+        <div
+          id={`faq-content-${index}`}
+          class="faq-content max-h-0 overflow-hidden transition-max-height duration-300 ease-in-out">
+          <div class="px-4 md:px-6 p-4 md:p-6 text-sm md:text-base text-on-surface-variant">
+            {faq.answer}
+          </div>
         </div>
       </div>
-    </div>
-  ))}
+    ))
+  }
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const toggles = document.querySelectorAll('.faq-toggle');
-    
+  document.addEventListener("DOMContentLoaded", () => {
+    const toggles = document.querySelectorAll(".faq-toggle");
+
     const closeAll = () => {
-      toggles.forEach(t => {
-        const targetId = t.getAttribute('data-target');
+      toggles.forEach((t) => {
+        const targetId = t.getAttribute("data-target");
         const content = document.getElementById(targetId);
-        const icon = t.querySelector('.faq-icon');
+        const icon = t.querySelector(".faq-icon");
         if (content && icon) {
-          content.style.maxHeight = '0px';
-          icon.style.transform = 'rotate(0deg)';
-          t.setAttribute('aria-expanded', 'false');
+          content.style.maxHeight = "0px";
+          icon.style.transform = "rotate(0deg)";
+          t.setAttribute("aria-expanded", "false");
         }
       });
     };
 
-    toggles.forEach(toggle => {
-      toggle.addEventListener('click', () => {
-        const targetId = toggle.getAttribute('data-target');
+    toggles.forEach((toggle) => {
+      toggle.addEventListener("click", () => {
+        const targetId = toggle.getAttribute("data-target");
         const content = document.getElementById(targetId);
-        const icon = toggle.querySelector('.faq-icon');
-        
+        const icon = toggle.querySelector(".faq-icon");
+
         if (content && icon) {
-          const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
-          
+          const isExpanded = toggle.getAttribute("aria-expanded") === "true";
+
           if (isExpanded) {
-            content.style.maxHeight = '0px';
-            icon.style.transform = 'rotate(0deg)';
-            toggle.setAttribute('aria-expanded', 'false');
+            content.style.maxHeight = "0px";
+            icon.style.transform = "rotate(0deg)";
+            toggle.setAttribute("aria-expanded", "false");
           } else {
             closeAll();
-            content.style.maxHeight = content.scrollHeight + 'px';
-            icon.style.transform = 'rotate(45deg)';
-            toggle.setAttribute('aria-expanded', 'true');
+            content.style.maxHeight = content.scrollHeight + "px";
+            icon.style.transform = "rotate(45deg)";
+            toggle.setAttribute("aria-expanded", "true");
           }
         }
       });
