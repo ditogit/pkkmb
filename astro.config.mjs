@@ -3,6 +3,7 @@ import tailwind from '@astrojs/tailwind';
 import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
+    base: '/pkkmb/',
     integrations: [tailwind()],
     devToolbar: { enabled: false },
     vite: {
@@ -17,8 +18,8 @@ export default defineConfig({
                     theme_color: '#0f172a',
                     background_color: '#ffffff',
                     display: 'standalone',
-                    scope: '/',
-                    start_url: '/',
+                    scope: '/pkkmb/',
+                    start_url: '/pkkmb/',
 
                     icons: [
                         {

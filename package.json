@@ -2,6 +2,7 @@
   "name": "pkkbn",
   "type": "module",
   "version": "0.0.1",
+  "homepage": "https://ditogit.github.io/pkkmb/",
   "engines": {
     "node": ">=22.12.0"
   },
