@@ -5,32 +5,54 @@ const menuItems = [
   { name: "Penugasan", href: "/pkkmb/assignments", icon: "edit_document" },
   { name: "Info Lokasi", href: "/pkkmb/locations", icon: "location_on" },
   { name: "Tata Tertib", href: "/pkkmb/rules", icon: "gavel" },
-  { name: "FAQ", href: "/pkkmb/faq", icon: "help_outline" }
+  { name: "FAQ", href: "/pkkmb/faq", icon: "help_outline" },
 ];
 ---
 
-<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 bg-white/80 backdrop-blur-xl rounded-t-3xl shadow-[0px_-10px_30px_rgba(18,60,115,0.06)]">
-  <a class="flex flex-col items-center justify-center bg-blue-50 text-blue-800 rounded-2xl px-4 py-2" href="/pkkmb">
-    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
-    <span class="font-body text-[11px] font-bold uppercase tracking-wider mt-1">Home</span>
+<nav
+  class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 bg-white/80 backdrop-blur-xl rounded-t-3xl shadow-[0px_-10px_30px_rgba(18,60,115,0.06)]">
+  <a
+    class="flex flex-col items-center justify-center bg-blue-50 text-blue-800 rounded-2xl px-4 py-2"
+    href="/pkkmb/">
+    <span
+      class="material-symbols-outlined"
+      style="font-variation-settings: 'FILL' 1;">home</span
+    >
+    <span class="font-body text-[11px] font-bold uppercase tracking-wider mt-1"
+      >Home</span
+    >
   </a>
-  <a class="flex flex-col items-center justify-center text-slate-500 px-4 py-2 hover:bg-slate-100" href="/pkkmb/schedule">
+  <a
+    class="flex flex-col items-center justify-center text-slate-500 px-4 py-2 hover:bg-slate-100"
+    href="/pkkmb/schedule">
     <span class="material-symbols-outlined">calendar_today</span>
-    <span class="font-body text-[11px] font-bold uppercase tracking-wider mt-1">Jadwal</span>
+    <span class="font-body text-[11px] font-bold uppercase tracking-wider mt-1"
+      >Jadwal</span
+    >
   </a>
-  <a class="flex flex-col items-center justify-center text-slate-500 px-4 py-2 hover:bg-slate-100" href="/pkkmb/announcements">
+  <a
+    class="flex flex-col items-center justify-center text-slate-500 px-4 py-2 hover:bg-slate-100"
+    href="/pkkmb/announcements">
     <span class="material-symbols-outlined">campaign</span>
-    <span class="font-body text-[11px] font-bold uppercase tracking-wider mt-1">Info</span>
+    <span class="font-body text-[11px] font-bold uppercase tracking-wider mt-1"
+      >Info</span
+    >
   </a>
-  <button id="menu-toggle" class="flex flex-col items-center justify-center text-slate-500 px-4 py-2 hover:bg-slate-100">
+  <button
+    id="menu-toggle"
+    class="flex flex-col items-center justify-center text-slate-500 px-4 py-2 hover:bg-slate-100">
     <span class="material-symbols-outlined">apps</span>
-    <span class="font-body text-[11px] font-bold uppercase tracking-wider mt-1">Lainnya</span>
+    <span class="font-body text-[11px] font-bold uppercase tracking-wider mt-1"
+      >Lainnya</span
+    >
   </button>
 </nav>
 
 <div id="menu-modal" class="md:hidden fixed inset-0 z-[60] hidden">
-  <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" id="menu-overlay"></div>
-  <div class="absolute bottom-0 left-0 right-0 bg-white rounded-t-3xl p-6 pb-8 max-h-[70vh] overflow-y-auto animate-slide-up">
+  <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" id="menu-overlay">
+  </div>
+  <div
+    class="absolute bottom-0 left-0 right-0 bg-white rounded-t-3xl p-6 pb-8 max-h-[70vh] overflow-y-auto animate-slide-up">
     <div class="flex items-center justify-between mb-6">
       <h3 class="text-lg font-bold text-primary">Menu Lainnya</h3>
       <button id="menu-close" class="p-2 hover:bg-slate-100 rounded-full">
@@ -38,20 +60,30 @@ const menuItems = [
       </button>
     </div>
     <div class="grid grid-cols-2 gap-4">
-      {menuItems.map((item) => (
-        <a href={item.href} class="flex items-center gap-3 p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/10 hover:shadow-md transition-shadow">
-          <span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg">{item.icon}</span>
-          <span class="font-semibold text-sm text-primary">{item.name}</span>
-        </a>
-      ))}
+      {
+        menuItems.map((item) => (
+          <a
+            href={item.href}
+            class="flex items-center gap-3 p-4 bg-surface-container-lowest rounded-xl border border-outline-variant/10 hover:shadow-md transition-shadow">
+            <span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg">
+              {item.icon}
+            </span>
+            <span class="font-semibold text-sm text-primary">{item.name}</span>
+          </a>
+        ))
+      }
     </div>
   </div>
 </div>
 
 <style>
   @keyframes slide-up {
-    from { transform: translateY(100%); }
-    to { transform: translateY(0); }
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: translateY(0);
+    }
   }
   .animate-slide-up {
     animation: slide-up 0.3s ease-out;
@@ -59,19 +91,19 @@ const menuItems = [
 </style>
 
 <script>
-  const menuToggle = document.getElementById('menu-toggle');
-  const menuModal = document.getElementById('menu-modal');
-  const menuOverlay = document.getElementById('menu-overlay');
-  const menuClose = document.getElementById('menu-close');
+  const menuToggle = document.getElementById("menu-toggle");
+  const menuModal = document.getElementById("menu-modal");
+  const menuOverlay = document.getElementById("menu-overlay");
+  const menuClose = document.getElementById("menu-close");
 
-  menuToggle?.addEventListener('click', () => {
-    menuModal?.classList.remove('hidden');
+  menuToggle?.addEventListener("click", () => {
+    menuModal?.classList.remove("hidden");
   });
 
   const closeMenu = () => {
-    menuModal?.classList.add('hidden');
+    menuModal?.classList.add("hidden");
   };
 
-  menuOverlay?.addEventListener('click', closeMenu);
-  menuClose?.addEventListener('click', closeMenu);
+  menuOverlay?.addEventListener("click", closeMenu);
+  menuClose?.addEventListener("click", closeMenu);
 </script>
