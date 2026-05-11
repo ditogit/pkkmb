@@ -10,7 +10,6 @@ export default defineConfig({
         plugins: [
             VitePWA({
                 registerType: 'autoUpdate',
-
                 manifest: {
                     name: 'PKK UPNYK',
                     short_name: 'PKK',
