@@ -91,19 +91,21 @@ const menuItems = [
 </style>
 
 <script>
-  const menuToggle = document.getElementById("menu-toggle");
-  const menuModal = document.getElementById("menu-modal");
-  const menuOverlay = document.getElementById("menu-overlay");
-  const menuClose = document.getElementById("menu-close");
+  document.addEventListener("astro:page-load", () => {
+    const menuToggle = document.getElementById("menu-toggle");
+    const menuModal = document.getElementById("menu-modal");
+    const menuOverlay = document.getElementById("menu-overlay");
+    const menuClose = document.getElementById("menu-close");
 
-  menuToggle?.addEventListener("click", () => {
-    menuModal?.classList.remove("hidden");
+    menuToggle?.addEventListener("click", () => {
+      menuModal?.classList.remove("hidden");
+    });
+
+    const closeMenu = () => {
+      menuModal?.classList.add("hidden");
+    };
+
+    menuOverlay?.addEventListener("click", closeMenu);
+    menuClose?.addEventListener("click", closeMenu);
   });
-
-  const closeMenu = () => {
-    menuModal?.classList.add("hidden");
-  };
-
-  menuOverlay?.addEventListener("click", closeMenu);
-  menuClose?.addEventListener("click", closeMenu);
 </script>
