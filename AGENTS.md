@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This is an Astro-based informational web application for PKKBN (Pengenalan Kehidupan Kampus Bela Negara) at UPN Veteran Yogyakarta. The site serves as a central portal for new students to access schedules, announcements, rules, and emergency information.
+This is an Astro-based informational web application for PKKMB (Pengenalan Kehidupan Kampus Mahasiswa Baru) at Universitas Merah Putih. The site serves as a central portal for new students to access schedules, announcements, rules, and emergency information.
 
 - **Tech Stack**: Astro 6.3.1, Tailwind CSS 3.4.17, Alpine.js 3.15.12
 - **Node Version**: >= 22.12.0
